@@ -9,10 +9,10 @@ Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fu
 
 ## Informações do trabalho
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- Nome: Matheus Henrique Moreira
+- Matricula: 878528
+- Proposta de projeto escolhida: Diretório de Receitas
+- Breve descrição sobre seu projeto: O projeto Chef em Casa é uma aplicação web para cadastro e visualização de receitas. Utiliza HTML, CSS, JavaScript e JSON Server para gerenciar os dados dos pratos, permitindo inserir, editar, excluir e exibir detalhes das receitas. Agora possui gráfico.
 
 **Print da tela com a implementação**
 
