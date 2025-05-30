@@ -1,3 +1,4 @@
+//Parte da página detalhes.html
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card')
 
@@ -23,14 +24,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+//Parte da página cadastro.html
 const apiUrl = '/pratos'
 
-function displayMessage(mensagem){
-    const msg = document.getElementById('msg')
-    msg.innerHTML = '<div class="alert alert-warning">' + mensagem + '</div>'
+document.getElementById('botaoMostrar').addEventListener('click', handleMostrar)
+function handleMostrar() {
+    readPratos((dados) => {
+        const resultado = document.getElementById('resultadoPesquisa')
+        resultado.style.display = 'block'
+        resultado.innerHTML = '<h3>Pratos cadastrados: </h3>'
+        dados.forEach(p => {
+            resultado.innerHTML += `<p><strong>ID:</strong> ${p.id} | <strong>Título:</strong> ${p.titulo}</p>`
+        })
+    })
 }
 
-function readPratos(processaDados){
+function readPratos(processaDados) {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
@@ -42,7 +52,23 @@ function readPratos(processaDados){
         })
 }
 
-function criarPrato(prato, refreshFunction){
+document.getElementById('botaoInserir').addEventListener('click', handleInserir)
+function handleInserir() {
+    const prato = {
+        id: document.getElementById('cadastroID').value,
+        titulo: document.getElementById('cadastroTitulo').value,
+        descricao: document.getElementById('cadastroDescricao').value,
+        ingredientes: document.getElementById('cadastroIngredientes').value.split(',').map(i => i.trim()),
+        categoria: document.getElementById('cadastroCategoria').value,
+        autor: document.getElementById('cadastroAutor').value,
+        data: document.getElementById('cadastroData').value,
+        tempoPreparo: document.getElementById('cadastroTempoPreparo').value,
+        imagem: 'assets/imagens/default.jpg'
+    }
+    criarPrato(prato)
+}
+
+function criarPrato(prato, refreshFunction) {
     fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -53,7 +79,7 @@ function criarPrato(prato, refreshFunction){
         .then(response => response.json())
         .then(data => {
             displayMessage("Prato inserido com sucesso")
-            if(refreshFunction)
+            if (refreshFunction)
                 refreshFunction()
         })
         .catch(error => {
@@ -62,12 +88,29 @@ function criarPrato(prato, refreshFunction){
         })
 }
 
-function updatePrato(id, prato, refreshFunction){
+document.getElementById('botaoAlterar').addEventListener('click', handleAlterar)
+function handleAlterar() {
+    const id = document.getElementById('cadastroID').value
+    const prato = {
+        id: document.getElementById('cadastroID').value,
+        titulo: document.getElementById('cadastroTitulo').value,
+        descricao: document.getElementById('cadastroDescricao').value,
+        ingredientes: document.getElementById('cadastroIngredientes').value.split(',').map(i => i.trim()),
+        categoria: document.getElementById('cadastroCategoria').value,
+        autor: document.getElementById('cadastroAutor').value,
+        data: document.getElementById('cadastroData').value,
+        tempoPreparo: document.getElementById('cadastroTempoPreparo').value,
+        imagem: 'assets/imagens/default.jpg'
+    }
+    updatePrato(id, prato)
+}
+
+function updatePrato(id, prato, refreshFunction) {
     fetch(`${apiUrl}/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
-            'Accept-Language' : 'pt-br',
+            'Accept-Language': 'pt-br',
             'Accept': 'text/json',
         },
         body: JSON.stringify(prato)
@@ -75,7 +118,7 @@ function updatePrato(id, prato, refreshFunction){
         .then(response => response.json())
         .then(data => {
             displayMessage("Prato alterado com sucesso")
-            if(refreshFunction)
+            if (refreshFunction)
                 refreshFunction()
         })
         .catch(error => {
@@ -84,14 +127,24 @@ function updatePrato(id, prato, refreshFunction){
         })
 }
 
-function deletePrato(id, refreshFunction){
+document.getElementById('botaoDelete').addEventListener('click', handleExcluir)
+function handleExcluir() {
+    const id = document.getElementById('cadastroID').value
+    if (!id) {
+        displayMessage("Informe o ID para excluir")
+        return
+    }
+    deletePrato(id)
+}
+
+function deletePrato(id, refreshFunction) {
     fetch(`${apiUrl}/${id}`, {
         method: 'DELETE',
     })
         .then(response => response.json())
         .then(data => {
             displayMessage("Prato removido com sucesso")
-            if(refreshFunction)
+            if (refreshFunction)
                 refreshFunction()
         })
         .catch(error => {
@@ -99,3 +152,23 @@ function deletePrato(id, refreshFunction){
             displayMessage("Erro ao deletar prato")
         })
 }
+
+document.getElementById('botaoLimpar').addEventListener('click', limparFormulario)
+function limparFormulario() {
+    document.getElementById('cadastroID').value = ''
+    document.getElementById('cadastroTitulo').value = ''
+    document.getElementById('cadastroDescricao').value = ''
+    document.getElementById('cadastroIngredientes').value = ''
+    document.getElementById('cadastroCategoria').value = ''
+    document.getElementById('cadastroAutor').value = ''
+    document.getElementById('cadastroData').value = ''
+    document.getElementById('cadastroTempoPreparo').value = ''
+    document.getElementById('imagem').value = ''
+}
+
+function displayMessage(mensagem) {
+    const msg = document.getElementById('msg')
+    msg.innerHTML = '<div class="alert alert-warning">' + mensagem + '</div>'
+}
+
+

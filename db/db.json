@@ -4,6 +4,7 @@
       "id": 1,
       "titulo": "Bife de boi",
       "descricao": "Delicioso bife.",
+      "tempoPreparo": "40 minutos",
       "ingredientes": [
         "Carne bovina",
         "Sal",
@@ -19,6 +20,7 @@
       "id": 2,
       "titulo": "Macarrão",
       "descricao": "Delicioso macarrão",
+      "tempoPreparo": "30 minutos",
       "ingredientes": [
         "Macarrão",
         "Molho de tomate",
@@ -33,6 +35,7 @@
       "id": 3,
       "titulo": "Salada",
       "descricao": "Deliciosa salada",
+      "tempoPreparo": "20 minutos",
       "ingredientes": [
         "Alface",
         "Tomate",
@@ -40,7 +43,7 @@
         "Azeite",
         "Vinagre"
       ],
-      "categoria": "Saudável",
+      "categoria": "Rápidas",
       "autor": "Claudia",
       "data": "06/04/2025",
       "imagem": "assets/imagens/prato3.jpg"
@@ -49,6 +52,7 @@
       "id": 4,
       "titulo": "Nachos",
       "descricao": "Deliciosos nachos",
+      "tempoPreparo": "60 minutos",
       "ingredientes": [
         "Tortilla chips",
         "Queijo cheddar",
@@ -64,6 +68,7 @@
       "id": 5,
       "titulo": "Espetinho",
       "descricao": "Delicioso espetinho",
+      "tempoPreparo": "20 minutos",
       "ingredientes": [
         "Camarão",
         "Pimentão",
@@ -79,6 +84,7 @@
     {
       "id": 6,
       "titulo": "Frango ao molho tarê",
+      "tempoPreparo": "120 minutos",
       "descricao": "Delicioso frango",
       "ingredientes": [
         "Frango",
@@ -95,6 +101,7 @@
       "id": 7,
       "titulo": "Frango frito",
       "descricao": "Deliciosa fritura",
+      "tempoPreparo": "60 minutos",
       "ingredientes": [
         "Frango",
         "Farinha de trigo",
@@ -111,6 +118,7 @@
       "id": 8,
       "titulo": "Bolinho de azeitona",
       "descricao": "Delicioso bolinho",
+      "tempoPreparo": "90 minutos",
       "ingredientes": [
         "Farinha de trigo",
         "Ovo",

@@ -30,6 +30,7 @@
         <p>Categoria: <span id="categoria"></span></p>
         <p>Autor: <span id="autor"></span></p>
         <p>Data: <span id="data"></span></p>
+        <p>Tempo de preparo: <span id="tempoPreparo"></span></p>
     </main>
 
     <footer>
@@ -58,6 +59,7 @@
                     document.getElementById('categoria').textContent = dados.categoria
                     document.getElementById('autor').textContent = dados.autor
                     document.getElementById('data').textContent = dados.data
+                    document.getElementById('tempoPreparo').textContent = dados.tempoPreparo
 
                     if(Array.isArray(dados.ingredientes)){
                     document.getElementById('ingredientes').innerHTML = dados.ingredientes.map(item => `<li>${item}</li>`).join('')

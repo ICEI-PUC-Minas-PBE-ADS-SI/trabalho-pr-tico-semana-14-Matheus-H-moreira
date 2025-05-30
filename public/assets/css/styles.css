@@ -140,6 +140,21 @@ section p {
     background-color: wheat;
     border-radius: 10px;
     border: wheat;
+    width: 200px;
+}
+
+.div_graficos {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.botao_grafico {
+    margin: 10px;
+    padding: 10px;
+    background-color: wheat;
+    border-radius: 10px;
+    border: wheat;
+    width: 200px;
 }
 /* Fim - Configuração do corpo do site */
 
